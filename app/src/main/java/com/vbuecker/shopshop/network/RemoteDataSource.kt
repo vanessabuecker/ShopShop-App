@@ -1,6 +1,7 @@
 package com.vbuecker.shopshop.network
 
 import com.vbuecker.shopshop.App
+import com.vbuecker.shopshop.model.ItemResponse
 import com.vbuecker.shopshop.model.LoginRequest
 import com.vbuecker.shopshop.model.RegisterRequest
 import com.vbuecker.shopshop.util.FakeDatabase
@@ -33,6 +34,19 @@ class RemoteDataSource {
                 }
             }
 
+        }.start()
+    }
+
+    fun getAll(onResponse: (List<ItemResponse>?, Throwable?) -> Unit) {
+        Thread {
+            FakeDatabase.getAll(App.getToken()) { res ->
+                if (res != null) {
+                    onResponse(res.list, null)
+                } else {
+                    onResponse(null, null)
+
+                }
+            }
         }.start()
     }
 

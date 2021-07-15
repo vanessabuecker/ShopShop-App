@@ -7,9 +7,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.vbuecker.shopshop.App
 import com.vbuecker.shopshop.R
+import com.vbuecker.shopshop.network.RemoteDataSource
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var adapter: MainAdapter
+    private val remoteDataSource: RemoteDataSource by lazy { RemoteDataSource() }
+
     companion object {
         fun laught(context: Context) {
             val intent = Intent(context, MainActivity::class.java)
@@ -22,11 +26,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        main_rv.adapter = MainAdapter()
+        adapter = MainAdapter()
+        main_rv.adapter = adapter
 
         val token = App.getToken()
         if (token == null) {
             SignInActivity.laught(this)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        remoteDataSource.getAll { list, throwable ->
+            runOnUiThread {
+                list?.let {
+                adapter.list.clear()
+                    adapter.list.addAll(it)
+                    adapter.notifyDataSetChanged()
+                }
+            }
         }
     }
 
