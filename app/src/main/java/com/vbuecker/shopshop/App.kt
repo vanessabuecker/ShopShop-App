@@ -21,10 +21,11 @@ class App: Application() {
         }
 
         fun getToken() = preferences.getString(KEY_TOKEN, null)
-
     }
+
     override fun onCreate() {
         super.onCreate()
         instance = this
     }
+
 }

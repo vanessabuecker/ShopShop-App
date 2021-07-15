@@ -88,6 +88,7 @@
                 android:hint="@string/name">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/register_editText_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#DCDCDC"
@@ -102,6 +103,7 @@
                 android:hint="@string/email">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/register_editText_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
@@ -118,6 +120,7 @@
                 android:hint="@string/password">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/register_editText_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#DCDCDC"
@@ -136,7 +139,7 @@
                 android:textColor="@android:color/darker_gray" />
 
             <Button
-                android:id="@+id/create_account_button"
+                android:id="@+id/register_button_send"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
@@ -160,13 +163,13 @@
         android:text="@string/dont_have_account"
         android:textColor="@color/black"
         android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toStartOf="@id/register_now_tv"
+        app:layout_constraintEnd_toStartOf="@id/register_now_txtClick"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/container_cardview" />
 
     <TextView
-        android:id="@+id/register_now_tv"
+        android:id="@+id/register_now_txtClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="112dp"
