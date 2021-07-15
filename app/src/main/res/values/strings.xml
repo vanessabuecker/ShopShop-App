@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ShopShop</string>
+    <string name="shopshop">ShopShop</string>
+    <string name="enter_your_account">Entre com a sua conta</string>
+    <string name="email">E-mail*</string>
+    <string name="password">Senha*</string>
+    <string name="forgot_password">Esqueceu sua senha?</string>
+    <string name="login">Login</string>
+    <string name="dont_have_account">Não tem uma conta?</string>
+    <string name="register_now">Cadastrar Agora</string>
+    <string name="name">Nome*</string>
+    <string name="uses_terms"><u>Li e aceito os termos de uso</u></string>
+    <string name="create_account">Criar conta</string>
+    <string name="alread_account">Já tem uma conta?</string>
+    <string name="email_and_password_incorrect">Email ou senha incorretos</string>
+</resources>
